@@ -65,7 +65,7 @@ const AuthScreen = ({
         />
       </View>
 
-      <Text style={styles.discription}>Or Sign In with</Text>
+      <Text style={styles.or}>Or Sign In with</Text>
 
       <View style={styles.bottomContainer}>
         <Text style={styles.toggleText} onPress={() => setIsLogin(!isLogin)}>
@@ -169,21 +169,27 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 3,
   },
+  or: {
+    fontSize: 15,
+    marginBottom: 16,
+    color: "#999999",
+    textAlign: "center",
+  },
   title: {
     fontSize: 24,
     marginBottom: 16,
-    textAlign: "start",
+    textAlign: "left",
   },
   subtitle: {
     fontSize: 18,
     marginBottom: 10,
-    textAlign: "start",
+    textAlign: "left",
   },
   discription: {
     fontSize: 15,
     marginBottom: 16,
     color: "#999999",
-    textAlign: "start",
+    textAlign: "left",
   },
   forgot: {
     fontSize: 15,
