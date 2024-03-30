@@ -10,6 +10,8 @@ import {
   onAuthStateChanged,
   signOut,
 } from "@firebase/auth";
+import AuthScreen from "./screens/AuthScreen";
+import AuthenticatedScreen from "./screens/AuthenticatedScreen";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDvE-KX5XBZSGVBL-DxZZKCbgvjFYMa8g0",
@@ -22,75 +24,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 
-const AuthScreen = ({
-  email,
-  setEmail,
-  password,
-  setPassword,
-  isLogin,
-  setIsLogin,
-  handleAuthentication,
-}) => {
-  return (
-    <View>
-      <Text style={styles.title}>{"Log In to Your Account"}</Text>
-      <Text style={styles.discription}>
-        {isLogin
-          ? "Please Sign in to your account"
-          : "Create an account to start looking for the food you like "}
-      </Text>
-      <Text style={styles.subtitle}>{"Email Address"}</Text>
-      <TextInput
-        style={styles.input}
-        value={email}
-        onChangeText={setEmail}
-        placeholder="Enter Email"
-        autoCapitalize="none"
-      />
-      <Text style={styles.subtitle}>{"Password"}</Text>
-      <TextInput
-        style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-        placeholder="Password"
-        secureTextEntry
-      />
-
-      <Text style={styles.forgot}>Forgot Password? </Text>
-      <View style={styles.buttonContainer}>
-        <Button
-          title={isLogin ? "Sign In" : "Register"}
-          onPress={handleAuthentication}
-          color="#3498db"
-        />
-      </View>
-
-      <Text style={styles.or}>Or Sign In with</Text>
-
-      <View style={styles.bottomContainer}>
-        <Text style={styles.toggleText} onPress={() => setIsLogin(!isLogin)}>
-          {isLogin
-            ? "Dont have an account? Register"
-            : // ? "Need an account? Sign Up"
-              "Already have an account? Sign In"}
-        </Text>
-      </View>
-    </View>
-  );
-};
-
-const AuthenticatedScreen = ({ user, handleAuthentication }) => {
-  return (
-    <View style={styles.authContainer}>
-      <Text style={styles.title}>LoginSuccessful</Text>
-      <Text style={styles.discription}>
-        An event has been created and the invite hase been sent to you on mail
-      </Text>
-      {/* <Text style={styles.emailText}>{user.email}</Text> */}
-      <Button title="Logout" onPress={handleAuthentication} color="#e74c3c" />
-    </View>
-  );
-};
 export default App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
